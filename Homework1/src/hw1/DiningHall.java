@@ -8,8 +8,8 @@ public class DiningHall {
     private static Customer customer = new Customer();
 
     // info about customers waiting at the cash registers
-    private static List<Integer>[] arrivalTimes;
-    private static List<Integer>[] serviceTimes;
+    //private static List<Integer>[] arrivalTimes;
+    //private static List<Integer>[] serviceTimes;
 
 
 
@@ -17,6 +17,7 @@ public class DiningHall {
     // statistics about the cash registers
     public static int[] customersServed;
     public static int[] totalWaitTimes;
+    ArrayList<CashRegister> cashRegistersList = new ArrayList<CashRegister>();
 
 
 
@@ -24,17 +25,17 @@ public class DiningHall {
     DiningHall(int num_Registers, int cust_Arrival_Percent){
         customerArrivalPercent = cust_Arrival_Percent;
         numRegisters = num_Registers;
-        arrivalTimes = (List<Integer>[]) new List[numRegisters];
-        serviceTimes = (List<Integer>[]) new List[numRegisters];
+        //arrivalTimes = (List<Integer>[]) new List[numRegisters];
+        //serviceTimes = (List<Integer>[]) new List[numRegisters];
 
         customersServed = new int[numRegisters];
         totalWaitTimes = new int[numRegisters];
 
         for (int r=0; r<numRegisters; r++) {
             //create the register objects in here
-            arrivalTimes[r] = new LinkedList<Integer>();
-            serviceTimes[r] = new LinkedList<Integer>();
-
+            //arrivalTimes[r] = new LinkedList<Integer>();
+            //serviceTimes[r] = new LinkedList<Integer>();
+            cashRegistersList.add(new CashRegister());
             customersServed[r] = 0;
             totalWaitTimes[r]  = 0;
         }
@@ -49,8 +50,10 @@ public class DiningHall {
     }
 
     public void customerService(int chosenRegister, int t){
-        arrivalTimes[chosenRegister].add(t);
-        serviceTimes[chosenRegister].add(2*customer.howManyItems() + 10);
+        //arrivalTimes[chosenRegister].add(t);
+        //serviceTimes[chosenRegister].add(2*customer.howManyItems() + 10);
+        cashRegistersList.get(chosenRegister).addToArrival(t);
+        cashRegistersList.get(chosenRegister).addToService((2*customer.howManyItems() + 10));
     }
 
     // The lists "arrivalTimes" and "serviceTimes" are associated with each register.
@@ -59,16 +62,16 @@ public class DiningHall {
     public int smallestRegister() {
         int currentSmallest = 0;
         for (int r=1; r<numRegisters; r++)
-            if (arrivalTimes[r].size() < arrivalTimes[currentSmallest].size())
+            if (cashRegistersList.get(r).arrivalTimes.size() < cashRegistersList.get(currentSmallest).arrivalTimes.size())
                 currentSmallest = r;
         return currentSmallest;
     }
 
-    public static List<Integer> getArrivalTimes(int reg) {
-        return arrivalTimes[reg];
+    public List<Integer> getArrivalTimes(int reg) {
+        return cashRegistersList.get(reg).arrivalTimes;
     }
-    public static List<Integer> getServiceTimes(int reg) {
-        return serviceTimes[reg];
+    public List<Integer> getServiceTimes(int reg) {
+        return cashRegistersList.get(reg).serviceTimes;
     }
 
 
