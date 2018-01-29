@@ -5,7 +5,7 @@ public class DiningHall {
     private static int customerArrivalPercent;    // There is a 15% chance a customer arrives each second.
     private static int numRegisters;
 
-    private static Customer customer = new Customer();
+    private static CashRegister customer = new CashRegister();
 
     // info about customers waiting at the cash registers
     //private static List<Integer>[] arrivalTimes;
@@ -17,7 +17,7 @@ public class DiningHall {
     // statistics about the cash registers
     public static int[] customersServed;
     public static int[] totalWaitTimes;
-    ArrayList<CashRegister> cashRegistersList = new ArrayList<CashRegister>();
+    ArrayList<Customer> cashRegistersList = new ArrayList<Customer>();
 
 
 
@@ -35,7 +35,7 @@ public class DiningHall {
             //create the register objects in here
             //arrivalTimes[r] = new LinkedList<Integer>();
             //serviceTimes[r] = new LinkedList<Integer>();
-            cashRegistersList.add(new CashRegister());
+            cashRegistersList.add(new Customer());
             customersServed[r] = 0;
             totalWaitTimes[r]  = 0;
         }
@@ -53,7 +53,7 @@ public class DiningHall {
         //arrivalTimes[chosenRegister].add(t);
         //serviceTimes[chosenRegister].add(2*customer.howManyItems() + 10);
         cashRegistersList.get(chosenRegister).addToArrival(t);
-        cashRegistersList.get(chosenRegister).addToService((2*customer.howManyItems() + 10));
+        cashRegistersList.get(chosenRegister).addToService((2* Customer.howManyItems() + 10));
     }
 
     // The lists "arrivalTimes" and "serviceTimes" are associated with each register.
