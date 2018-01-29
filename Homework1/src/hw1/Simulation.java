@@ -32,8 +32,8 @@ public class Simulation {
         // Print out the statistics.
         for (int r=0; r<NUM_REGISTERS; r++) {
             System.out.println("Register " + r);
-            System.out.println("\tNumber of arrivals = " + hall.customersServed[r]);
-            System.out.println("\tAverage wait time = " + (hall.totalWaitTimes[r] / hall.customersServed[r]));
+            System.out.println("\tNumber of arrivals = " +  hall.cashRegisterList.get(r).totalCustomersServed);
+            System.out.println("\tAverage wait time = " + ( hall.cashRegisterList.get(r).intTotalWaitTimes / hall.cashRegisterList.get(r).totalCustomersServed));
         }
     }
 
@@ -55,8 +55,8 @@ public class Simulation {
         }
         else { // We are done with this customer.
             // First update the register's statistics.
-            hall.customersServed[reg]++;
-            hall.totalWaitTimes[reg] += currentTime - hall.getArrivalTimes(reg).get(0);
+            hall.cashRegisterList.get(reg).totalCustomersServed++;
+            hall.cashRegisterList.get(reg).intTotalWaitTimes += currentTime - hall.getArrivalTimes(reg).get(0);
 
             // Then remove the customer.
             hall.getArrivalTimes(reg).remove(0);

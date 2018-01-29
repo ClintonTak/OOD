@@ -6,7 +6,6 @@ class Customer {
     private ArrayList<Integer> serviceTimes = new ArrayList<>();
 
 
-    //each cash register should have a list of customer objects that each have
     Customer() {
 
     }
@@ -31,8 +30,5 @@ class Customer {
     public ArrayList<Integer> getArrivalTimes() {
         return arrivalTimes;
     }
-
-
-
 
 }
