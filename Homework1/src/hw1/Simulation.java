@@ -22,13 +22,10 @@ public class Simulation {
                 // The new customer goes into the smaller line.
                 int chosenRegister = hall.smallestRegister();
                 hall.customerService(chosenRegister, t);
-
             }
-
             for (int r=0; r<NUM_REGISTERS; r++)
                 elapseOneSecond(r, t);  // Simulate each register for one second.
         }
-
         // Print out the statistics.
         for (int r=0; r<NUM_REGISTERS; r++) {
             System.out.println("Register " + r);
@@ -37,17 +34,10 @@ public class Simulation {
         }
     }
 
-
-
-
-
-
-
     private static void elapseOneSecond(int reg, int currentTime) {
         // If the list is empty, there are no customers to process.
         if (hall.getArrivalTimes(reg).size() == 0)
             return;
-
         // Otherwise, the first customer in line gets processed.
         int timeLeft = hall.getServiceTimes(reg).get(0) - 1;
         if (timeLeft > 0) {

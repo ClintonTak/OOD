@@ -4,7 +4,7 @@ import java.util.*;
 class CashRegister {
 
 
-
+    //move customer here
 
     //each cash register should have a list of customer objects that each have arrival and service times
     //public ArrayList<Integer> customersServed = new ArrayList<>();
