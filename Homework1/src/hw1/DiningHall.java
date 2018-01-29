@@ -62,16 +62,16 @@ public class DiningHall {
     public int smallestRegister() {
         int currentSmallest = 0;
         for (int r=1; r<numRegisters; r++)
-            if (cashRegistersList.get(r).arrivalTimes.size() < cashRegistersList.get(currentSmallest).arrivalTimes.size())
+            if (cashRegistersList.get(r).getArrivalTimes().size() < cashRegistersList.get(currentSmallest).getArrivalTimes().size())
                 currentSmallest = r;
         return currentSmallest;
     }
 
     public List<Integer> getArrivalTimes(int reg) {
-        return cashRegistersList.get(reg).arrivalTimes;
+        return cashRegistersList.get(reg).getArrivalTimes();
     }
     public List<Integer> getServiceTimes(int reg) {
-        return cashRegistersList.get(reg).serviceTimes;
+        return cashRegistersList.get(reg).getServiceTimes();
     }
 
 
