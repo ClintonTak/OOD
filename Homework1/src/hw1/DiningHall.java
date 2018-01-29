@@ -7,11 +7,18 @@ public class DiningHall {
 
     private static Customer customer = new Customer();
 
-
-
     // info about customers waiting at the cash registers
     private static List<Integer>[] arrivalTimes;
     private static List<Integer>[] serviceTimes;
+
+
+
+
+    // statistics about the cash registers
+    public static int[] customersServed;
+    public static int[] totalWaitTimes;
+
+
 
 
     DiningHall(int num_Registers, int cust_Arrival_Percent){
@@ -20,10 +27,16 @@ public class DiningHall {
         arrivalTimes = (List<Integer>[]) new List[numRegisters];
         serviceTimes = (List<Integer>[]) new List[numRegisters];
 
+        customersServed = new int[numRegisters];
+        totalWaitTimes = new int[numRegisters];
+
         for (int r=0; r<numRegisters; r++) {
             //create the register objects in here
             arrivalTimes[r] = new LinkedList<Integer>();
             serviceTimes[r] = new LinkedList<Integer>();
+
+            customersServed[r] = 0;
+            totalWaitTimes[r]  = 0;
         }
 
 
@@ -57,5 +70,7 @@ public class DiningHall {
     public static List<Integer> getServiceTimes(int reg) {
         return serviceTimes[reg];
     }
+
+
 
 }

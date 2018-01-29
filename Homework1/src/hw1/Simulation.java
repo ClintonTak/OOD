@@ -10,20 +10,12 @@ public class Simulation {
 
 
 
-    // statistics about the cash registers
-    private static int[] customersServed = new int[NUM_REGISTERS];
-    private static int[] totalWaitTimes = new int[NUM_REGISTERS];
+
 
 
     private static DiningHall hall = new DiningHall(NUM_REGISTERS,CUST_ARRIVAL_PCT);
 
     public static void main(String[] args) {
-        // First, initialize the cash register arrays.
-        for (int r=0; r<NUM_REGISTERS; r++) {
-            customersServed[r] = 0;
-            totalWaitTimes[r]  = 0;
-        }
-
         // Then perform the simulation for the specified number of seconds.
         for (int t=0; t<SIMULATION_TIME; t++) {
             if (hall.aCustomerArrives()) {
@@ -40,8 +32,8 @@ public class Simulation {
         // Print out the statistics.
         for (int r=0; r<NUM_REGISTERS; r++) {
             System.out.println("Register " + r);
-            System.out.println("\tNumber of arrivals = " + customersServed[r]);
-            System.out.println("\tAverage wait time = " + (totalWaitTimes[r] / customersServed[r]));
+            System.out.println("\tNumber of arrivals = " + hall.customersServed[r]);
+            System.out.println("\tAverage wait time = " + (hall.totalWaitTimes[r] / hall.customersServed[r]));
         }
     }
 
@@ -63,8 +55,8 @@ public class Simulation {
         }
         else { // We are done with this customer.
             // First update the register's statistics.
-            customersServed[reg]++;
-            totalWaitTimes[reg] += currentTime - hall.getArrivalTimes(reg).get(0);
+            hall.customersServed[reg]++;
+            hall.totalWaitTimes[reg] += currentTime - hall.getArrivalTimes(reg).get(0);
 
             // Then remove the customer.
             hall.getArrivalTimes(reg).remove(0);
