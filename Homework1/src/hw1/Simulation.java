@@ -8,11 +8,6 @@ public class Simulation {
     private static final int CUST_ARRIVAL_PCT = 15;    // There is a 15% chance a customer arrives each second.
     private static final int NUM_REGISTERS = 4;        // There are 4 cash registers.
 
-
-
-
-
-
     private static DiningHall hall = new DiningHall(NUM_REGISTERS,CUST_ARRIVAL_PCT);
 
     public static void main(String[] args) {
@@ -24,7 +19,6 @@ public class Simulation {
                 hall.customerService(chosenRegister, t);
 
             }
-
             for (int r=0; r<NUM_REGISTERS; r++)
                 elapseOneSecond(r, t);  // Simulate each register for one second.
         }
@@ -36,11 +30,6 @@ public class Simulation {
             System.out.println("\tAverage wait time = " + (hall.totalWaitTimes[r] / hall.customersServed[r]));
         }
     }
-
-
-
-
-
 
 
     private static void elapseOneSecond(int reg, int currentTime) {

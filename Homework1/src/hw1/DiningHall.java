@@ -11,12 +11,10 @@ public class DiningHall {
     private static List<Integer>[] arrivalTimes;
     private static List<Integer>[] serviceTimes;
 
+    ArrayList<CashRegister> list = new ArrayList<CashRegister>();
 
 
 
-    // statistics about the cash registers
-    public static int[] customersServed;
-    public static int[] totalWaitTimes;
 
 
 
@@ -27,16 +25,16 @@ public class DiningHall {
         arrivalTimes = (List<Integer>[]) new List[numRegisters];
         serviceTimes = (List<Integer>[]) new List[numRegisters];
 
-        customersServed = new int[numRegisters];
-        totalWaitTimes = new int[numRegisters];
+
 
         for (int r=0; r<numRegisters; r++) {
             //create the register objects in here
             arrivalTimes[r] = new LinkedList<Integer>();
             serviceTimes[r] = new LinkedList<Integer>();
 
-            customersServed[r] = 0;
-            totalWaitTimes[r]  = 0;
+            list.add(new CashRegister(r));
+
+
         }
 
 
