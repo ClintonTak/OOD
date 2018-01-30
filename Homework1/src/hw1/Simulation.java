@@ -1,17 +1,9 @@
 package hw1;
 
 public class Simulation {
-
-
-
     private static final int SIMULATION_TIME = 100000;  // A simulation is for 100,000 seconds.
     private static final int CUST_ARRIVAL_PCT = 15;    // There is a 15% chance a customer arrives each second.
     private static final int NUM_REGISTERS = 4;        // There are 4 cash registers.
-
-
-
-
-
 
     private static DiningHall hall = new DiningHall(NUM_REGISTERS,CUST_ARRIVAL_PCT);
 

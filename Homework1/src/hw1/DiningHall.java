@@ -8,20 +8,13 @@ public class DiningHall {
     ArrayList<Customer> customerList = new ArrayList<>();
     public ArrayList<CashRegister> cashRegisterList = new ArrayList<>();
 
-
-
-
     DiningHall(int num_Registers, int cust_Arrival_Percent){
         customerArrivalPercent = cust_Arrival_Percent;
         numRegisters = num_Registers;
-
         for (int r=0; r<numRegisters; r++) {
             customerList.add(new Customer());
             cashRegisterList.add(new CashRegister());
         }
-
-
-
     }
 
     public boolean aCustomerArrives() {
