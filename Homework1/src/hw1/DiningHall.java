@@ -5,15 +5,21 @@ public class DiningHall {
     private static int customerArrivalPercent;    // There is a 15% chance a customer arrives each second.
     private static int numRegisters;
 
+<<<<<<< HEAD
     ArrayList<Customer> customerList = new ArrayList<>();
     public ArrayList<CashRegister> cashRegisterList = new ArrayList<>();
+=======
+>>>>>>> f55625acd1967d2a5df5b2fd9c5d35ee523d8d13
 
     DiningHall(int num_Registers, int cust_Arrival_Percent){
         customerArrivalPercent = cust_Arrival_Percent;
         numRegisters = num_Registers;
+<<<<<<< HEAD
         for (int r=0; r<numRegisters; r++) {
             customerList.add(new Customer());
             cashRegisterList.add(new CashRegister());
+=======
+>>>>>>> f55625acd1967d2a5df5b2fd9c5d35ee523d8d13
         }
     }
 

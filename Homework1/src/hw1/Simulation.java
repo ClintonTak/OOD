@@ -26,6 +26,10 @@ public class Simulation {
         }
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f55625acd1967d2a5df5b2fd9c5d35ee523d8d13
     private static void elapseOneSecond(int reg, int currentTime) {
         // If the list is empty, there are no customers to process.
         if (hall.getArrivalTimes(reg).size() == 0)
