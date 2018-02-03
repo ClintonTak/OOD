@@ -9,6 +9,19 @@ public class DiningHall {
     ArrayList<Customer> customerList = new ArrayList<>();
     public ArrayList<CashRegister> cashRegisterList = new ArrayList<>();
 =======
+    private static Customer customer = new Customer();
+
+    // info about customers waiting at the cash registers
+    private static List<Integer>[] arrivalTimes;
+    private static List<Integer>[] serviceTimes;
+
+    ArrayList<CashRegister> list = new ArrayList<CashRegister>();
+
+
+
+
+
+
 >>>>>>> f55625acd1967d2a5df5b2fd9c5d35ee523d8d13
 
     DiningHall(int num_Registers, int cust_Arrival_Percent){
@@ -19,6 +32,19 @@ public class DiningHall {
             customerList.add(new Customer());
             cashRegisterList.add(new CashRegister());
 =======
+        arrivalTimes = (List<Integer>[]) new List[numRegisters];
+        serviceTimes = (List<Integer>[]) new List[numRegisters];
+
+
+
+        for (int r=0; r<numRegisters; r++) {
+            //create the register objects in here
+            arrivalTimes[r] = new LinkedList<Integer>();
+            serviceTimes[r] = new LinkedList<Integer>();
+
+            list.add(new CashRegister(r));
+
+
 >>>>>>> f55625acd1967d2a5df5b2fd9c5d35ee523d8d13
         }
     }
