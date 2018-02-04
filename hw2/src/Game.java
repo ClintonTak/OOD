@@ -2,10 +2,11 @@ package hw2;
 import java.util.*;
 public class Game {
 
-    public int chipsInPot;
+    //public int chipsInPot;
     private ArrayList<Player> playerArrayList = new ArrayList<>();
     public Game(int numberOfHumanPlayers, int numberOfTimidPlayers, int numberOfCraftyPlayers){
-        chipsInPot = 0;
+        //chipsInPot = 0;
+        Pot pot = new Pot();
         for (int i = 0; i < numberOfHumanPlayers; i++){
             playerArrayList.add(new HumanPlayer(i));
         }
@@ -23,8 +24,8 @@ public class Game {
             System.out.printf("It is currently %s's turn.\n", player.getPlayerID());
             if (player instanceof HumanPlayer){
                 while(true) {// move this to humanPlayer
-                    processOneTurn(player.getNumberOfDiceRolled());
-                    int humanChoice = player.doTurn(chipsInPot, currentHighest);
+                    pot.processOneTurn(player.getNumberOfDiceRolled());
+                    int humanChoice = player.doTurn(pot.getNumberOfChips(), currentHighest);
                     if (humanChoice == -1){
                         System.out.printf("You aced out. You have %d chips.\n\n\n", player.getChipCount());
                         break;
@@ -33,8 +34,8 @@ public class Game {
                         System.out.println("You want to roll again.");
                     }
                     else{
-                        player.setNumberOfChips(player.getChipCount() + chipsInPot);
-                        chipsInPot = 0;
+                        player.setNumberOfChips(player.getChipCount() + pot.getNumberOfChips());
+                        pot.setNumberOfChips(0);
                         System.out.printf("You want to take the pot. You now have %d chips.\n\n\n", player.getChipCount() );
                         break;
                     }
@@ -43,14 +44,14 @@ public class Game {
             else if (player instanceof TimidPlayer){
                 System.out.println("Running Timid Players Turn.");
                 while(true) {
-                    processOneTurn(player.getNumberOfDiceRolled());
-                    if (player.doTurn(chipsInPot, currentHighest) == -1) {
+                    pot.processOneTurn(player.getNumberOfDiceRolled());
+                    if (player.doTurn(pot.getNumberOfChips(), currentHighest) == -1) {
                         System.out.printf("%s aced out. It has %d chips.\n\n\n", player.getPlayerID(), player.getChipCount());
                         break;
                     }
                     else {
-                        player.setNumberOfChips(player.getChipCount() + chipsInPot);
-                        chipsInPot = 0;
+                        player.setNumberOfChips(player.getChipCount() + pot.getNumberOfChips());
+                        pot.setNumberOfChips(0);
                         System.out.printf("%s decided to take the pot. It now has %d chips.\n\n\n", player.getPlayerID(), player.getChipCount());
                         break;
                     }
@@ -58,15 +59,15 @@ public class Game {
             }
             else{
                 while(true){
-                    processOneTurn(player.getNumberOfDiceRolled());
+                    pot.processOneTurn(player.getNumberOfDiceRolled());
                     System.out.println("Running Crafty Players turn.");
-                    if (player.doTurn(chipsInPot, currentHighest) == -1){//ace out
+                    if (player.doTurn(pot.getNumberOfChips(), currentHighest) == -1){//ace out
                         System.out.printf("%s Aced out\n\n\n", player.getPlayerID(), player.getChipCount());
                         break;
                     }
                     else{//decides to take the pot
-                        player.setNumberOfChips(player.getChipCount() + chipsInPot);
-                        chipsInPot = 0;
+                        player.setNumberOfChips(player.getChipCount() + pot.getNumberOfChips());
+                        pot.setNumberOfChips(0);
                         System.out.printf("%s decided to take the pot. It now has %d chips.\n\n\n", player.getPlayerID(), player.getChipCount());
                         break;
                     }
@@ -75,6 +76,7 @@ public class Game {
             i++;
         }
     }
+
     private int findFirstPlaceChipCount(){
         int currentHighestChipCount = 0;
         for (int i = 0; i <playerArrayList.size() ; i++) {
@@ -84,10 +86,7 @@ public class Game {
         }
         return currentHighestChipCount;
     }
-    public void processOneTurn(int incrementAmount){
-        chipsInPot = chipsInPot + incrementAmount;
-        System.out.printf("There are currently %d chips in the pot.\n", chipsInPot);
-    }
+
 
     private boolean winConditionSatisfied(){
         for (int i = 0; i < playerArrayList.size(); i++){

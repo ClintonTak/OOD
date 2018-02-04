@@ -43,7 +43,6 @@ public class CraftyPlayer implements Player {
             else if (numberOfChipsInPot + numberOfChips > firstPlaceChipCount){//takes pot
                 return 1;
             }
-            //reroll
             numberOfDiceRolled ++;
             diceOutcomes = Dice.rollDice(numberOfDiceRolled);
         }
