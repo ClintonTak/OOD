@@ -1,8 +1,9 @@
 package hw2;
 import java.util.*;
 public class Game {
+
     public int chipsInPot;
-    public ArrayList<Player> playerArrayList = new ArrayList<>();
+    private ArrayList<Player> playerArrayList = new ArrayList<>();
     public Game(int numberOfHumanPlayers, int numberOfTimidPlayers, int numberOfCraftyPlayers){
         chipsInPot = 0;
         for (int i = 0; i < numberOfHumanPlayers; i++){
@@ -19,14 +20,13 @@ public class Game {
             int currentHighest =  findFirstPlaceChipCount();
             int currentPlayerTurn = i % playerArrayList.size();
             Player player = playerArrayList.get(currentPlayerTurn);
-            System.out.printf("It is currently %s's turn. There are %d chips in the pot\n", player.getPlayerID(), chipsInPot );
+            System.out.printf("It is currently %s's turn.\n", player.getPlayerID());
             if (player instanceof HumanPlayer){
-                while(true) {
+                while(true) {// move this to humanPlayer
                     processOneTurn(player.getNumberOfDiceRolled());
                     int humanChoice = player.doTurn(chipsInPot, currentHighest);
                     if (humanChoice == -1){
                         System.out.printf("You aced out. You have %d chips.\n\n\n", player.getChipCount());
-
                         break;
                     }
                     else if (humanChoice == 1){
@@ -34,7 +34,7 @@ public class Game {
                     }
                     else{
                         player.setNumberOfChips(player.getChipCount() + chipsInPot);
-                        chipsInPot = 1;
+                        chipsInPot = 0;
                         System.out.printf("You want to take the pot. You now have %d chips.\n\n\n", player.getChipCount() );
                         break;
                     }
@@ -43,24 +43,33 @@ public class Game {
             else if (player instanceof TimidPlayer){
                 System.out.println("Running Timid Players Turn.");
                 while(true) {
+                    processOneTurn(player.getNumberOfDiceRolled());
                     if (player.doTurn(chipsInPot, currentHighest) == -1) {
                         System.out.printf("%s aced out. It has %d chips.\n\n\n", player.getPlayerID(), player.getChipCount());
                         break;
                     }
-                    if (player.doTurn(chipsInPot, currentHighest) == 1) {
+                    else {
                         player.setNumberOfChips(player.getChipCount() + chipsInPot);
-                        chipsInPot = 1;
+                        chipsInPot = 0;
                         System.out.printf("%s decided to take the pot. It now has %d chips.\n\n\n", player.getPlayerID(), player.getChipCount());
                         break;
                     }
                 }
             }
             else{
-                System.out.println("Running Crafty Players turn.");
-                if (player.doTurn(chipsInPot, currentHighest) == 1){//decides to take the pot
-                    player.setNumberOfChips(player.getChipCount() + chipsInPot);
-                    chipsInPot = 1;
-                    System.out.printf("%s decided to take the pot. It now has %d chips.\n\n\n", player.getPlayerID(), player.getChipCount());
+                while(true){
+                    processOneTurn(player.getNumberOfDiceRolled());
+                    System.out.println("Running Crafty Players turn.");
+                    if (player.doTurn(chipsInPot, currentHighest) == -1){//ace out
+                        System.out.printf("%s Aced out\n\n\n", player.getPlayerID(), player.getChipCount());
+                        break;
+                    }
+                    else{//decides to take the pot
+                        player.setNumberOfChips(player.getChipCount() + chipsInPot);
+                        chipsInPot = 0;
+                        System.out.printf("%s decided to take the pot. It now has %d chips.\n\n\n", player.getPlayerID(), player.getChipCount());
+                        break;
+                    }
                 }
             }
             i++;
@@ -89,10 +98,4 @@ public class Game {
         }
         return false;
     }
-
-
-
-
-
-
 }

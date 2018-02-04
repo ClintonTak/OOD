@@ -38,7 +38,6 @@ public class TimidPlayer implements Player{
             numberOfDiceRolled = 1;
             return -1;
         }
-
         return 1;
     }
 
