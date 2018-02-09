@@ -1,8 +1,6 @@
 package hw2;
 import java.util.*;
 public class HW2DiceGame {
-    public int highestNumberOfChips = 0;
-
     public static void main(String args[]){
         Scanner reader = new Scanner(System.in);
         System.out.println("Welcome to the Dice Game! \nEnter the number of human players you want here and then press enter: ");

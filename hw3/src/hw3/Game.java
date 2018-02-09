@@ -1,4 +1,5 @@
-package hw2;
+package hw3;
+
 import java.util.*;
 public class Game {
     private ArrayList<Player> playerArrayList = new ArrayList<>();

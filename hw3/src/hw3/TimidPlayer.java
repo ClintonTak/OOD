@@ -1,31 +1,14 @@
-package hw2;
+package hw3;
 
 import java.util.ArrayList;
 
-public class TimidPlayer implements Player{
-    private int numberOfChips;
-    private int numberOfDiceRolled;
-    private String playerID;
+public class TimidPlayer extends Player{
 
     public TimidPlayer(int player_ID){
         numberOfChips = 0;
         numberOfDiceRolled = 1;
         playerID = "Timid Player " + Integer.toString(player_ID);
 
-    }
-
-    public int getChipCount(){
-        return numberOfChips;
-    }
-    public void setNumberOfChips(int numberOfChips) {
-        this.numberOfChips = numberOfChips;
-    }
-    public int getNumberOfDiceRolled() {
-        return numberOfDiceRolled;
-    }
-
-    public String getPlayerID(){
-        return playerID;
     }
 
     public int doTurn(int numberOfChipsInPot, int firstPlaceChipCount){//only takes the pot

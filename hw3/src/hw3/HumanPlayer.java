@@ -1,30 +1,12 @@
-package hw2;
+package hw3;
+
 import java.lang.reflect.Array;
 import java.util.*;
-public class HumanPlayer implements Player{
-    private int numberOfChips;
-    private int numberOfDiceRolled;
-    private String playerID;
-
+public class HumanPlayer extends Player{
     public HumanPlayer(int player_ID){
         numberOfChips = 0;
         numberOfDiceRolled = 1;
         playerID = "Human Player " + Integer.toString(player_ID);
-    }
-
-    public int getChipCount(){
-        return numberOfChips;
-    }
-    public void setNumberOfChips(int numberOfChips) {
-        this.numberOfChips = numberOfChips;
-    }
-
-    public String getPlayerID(){
-        return playerID;
-    }
-
-    public int getNumberOfDiceRolled() {
-        return numberOfDiceRolled;
     }
 
     public int getInput(){

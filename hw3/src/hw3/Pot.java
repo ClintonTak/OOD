@@ -1,4 +1,4 @@
-package hw2;
+package hw3;
 
 public class Pot {
     private int numberOfChips = 0;
