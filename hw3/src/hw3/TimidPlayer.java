@@ -1,13 +1,11 @@
 package hw3;
-
 import java.util.ArrayList;
 
 public class TimidPlayer extends Player{
 
-    public TimidPlayer(int player_ID){
-        numberOfChips = 0;
-        numberOfDiceRolled = 1;
-        playerID = "Timid Player " + Integer.toString(player_ID);
+    public TimidPlayer(String player_ID){
+        super(player_ID);
+        playerType = 2;
 
     }
 

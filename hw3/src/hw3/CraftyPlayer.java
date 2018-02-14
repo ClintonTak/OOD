@@ -1,14 +1,12 @@
 package hw3;
-
 import java.util.ArrayList;
 
 public class CraftyPlayer extends Player {
 
-    public CraftyPlayer(int player_ID) {
-        numberOfChips = 0;
-        numberOfDiceRolled = 1;
-        playerID = "Crafty Player " + Integer.toString(player_ID);
-
+    public CraftyPlayer(String player_ID) {
+        //playerID = player_ID;
+        super(player_ID);
+        playerType = 3;
     }
 
     public int doTurn(int numberOfChipsInPot, int firstPlaceChipCount){//only takes pot if it has more chips than anyone else

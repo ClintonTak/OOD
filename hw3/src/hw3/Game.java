@@ -1,20 +1,37 @@
 package hw3;
 
 import java.util.*;
+import java.io.*;
 public class Game {
-    private ArrayList<Player> playerArrayList = new ArrayList<>();
+    private ArrayList<Player> playerArrayList;
+    private Pot pot;
+    private Map<String, Player> playerDatabase;
+    private File f;
+    private String fileName = "ClintonTak00.txt";
+    public Game() {
+        playerArrayList = new ArrayList<>();
+        pot = new Pot();
 
-    public Game(int numberOfHumanPlayers, int numberOfTimidPlayers, int numberOfCraftyPlayers){
-        Pot pot = new Pot();
-        for (int i = 0; i < numberOfHumanPlayers; i++){
-            playerArrayList.add(new HumanPlayer(i));
+        this.f = new File(fileName);
+        if (!this.f.exists())
+            this.playerDatabase = new HashMap<>();
+        else {
+            try {
+                InputStream is = new FileInputStream(this.f);
+                ObjectInputStream ois = new ObjectInputStream(is);
+                this.playerDatabase = (Map<String,Player>) ois.readObject();
+                ois.close();
+            } catch (IOException ex) {
+                System.out.println(ex);
+                throw new RuntimeException("Player record file is corrupt");
+            } catch (ClassNotFoundException ex) {
+                System.out.println(ex);
+                throw new RuntimeException("Serialization problem");
+            }
         }
-        for (int i = 0; i < numberOfTimidPlayers; i++){
-            playerArrayList.add(new TimidPlayer(i));
-        }
-        for (int i = 0; i < numberOfCraftyPlayers; i++){
-            playerArrayList.add(new CraftyPlayer(i));
-        }
+    }
+
+    public void play(){
         int i = 0;
         while(!winConditionSatisfied()){
             int currentHighest =  findFirstPlaceChipCount();
@@ -50,7 +67,61 @@ public class Game {
             }
             i++;
         }
+        gameOver();
     }
+
+    private void gameOver(){
+        for (Player player : this.playerArrayList) {
+            player.gameOver();
+        }
+    }
+
+
+    public void savePlayerRecords() {
+        for (Player player : this.playerArrayList) {
+            this.playerDatabase.put(player.getPlayerID(), player);
+        }
+
+        try {
+            OutputStream os = new FileOutputStream(this.f);
+            ObjectOutputStream oos = new ObjectOutputStream(os);
+            oos.writeObject(this.playerDatabase);
+            oos.close();
+        } catch (Exception e) {
+            throw new RuntimeException("Player record file is corrupt.");
+        }
+    }
+
+
+    public boolean addPlayer(String name, int type) {
+        if (type == 1) {//human player
+            playerArrayList.add(new HumanPlayer(name));
+            return true;
+        }
+        else if (type == 2){//timid player
+            playerArrayList.add(new TimidPlayer(name));
+            return true;
+        }
+        else if (type == 3 ){//crafty player
+            playerArrayList.add(new CraftyPlayer(name));
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean addKnownPlayer(String name){
+        Player player = playerDatabase.get(name);
+        if (player != null){
+            playerArrayList.add(player);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 
     private int findFirstPlaceChipCount(){
         int currentHighestChipCount = 0;
@@ -67,6 +138,7 @@ public class Game {
         for (int i = 0; i < playerArrayList.size(); i++){
             if (playerArrayList.get(i).getChipCount()>29){
                 System.out.printf("Player %s has won with %d chips!", playerArrayList.get(i).getPlayerID(), playerArrayList.get(i).getChipCount());
+                playerArrayList.get(i).wonGame();//increment win
                 return true;
             }
         }

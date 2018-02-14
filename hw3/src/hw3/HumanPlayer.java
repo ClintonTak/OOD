@@ -1,12 +1,11 @@
 package hw3;
-
-import java.lang.reflect.Array;
 import java.util.*;
+
 public class HumanPlayer extends Player{
-    public HumanPlayer(int player_ID){
-        numberOfChips = 0;
-        numberOfDiceRolled = 1;
-        playerID = "Human Player " + Integer.toString(player_ID);
+
+    public HumanPlayer(String player_ID){
+        super(player_ID);
+        playerType = 1;
     }
 
     public int getInput(){
