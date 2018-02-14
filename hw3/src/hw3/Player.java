@@ -1,7 +1,7 @@
 package hw3;
-
 import java.io.Serializable;
-abstract class Player {
+
+abstract class Player implements Comparable<Player>, Serializable{
     //Constants
     int numberOfChips;
     int numberOfDiceRolled;
@@ -28,42 +28,52 @@ abstract class Player {
     public int getNumberOfDiceRolled() {
         return numberOfDiceRolled;
     }
-    public void setNumberOfChips(int numberOfChips) {
-        this.numberOfChips = numberOfChips;
+    public void setNumberOfChips(int chips) {
+        numberOfChips = chips;
     }
     public void wonGame() {
-        this.wins++;
+        wins++;
     }
 
-    public void gameOver() {
-        this.numberOfChips = 0;
-        this.gamesPlayed++;
+    public void endGame() {
+        numberOfChips = 0;
+        gamesPlayed++;
     }
 
     abstract int doTurn(int numberOfChipsInPot, int firstPlaceChipCount);
-}
 
-/*
     public int compareTo(Player player) {
-        if (this.winRate().equals(player.winRate()))
-            return this.name.compareTo(player.name);
+        if (winRatio().equals(player.winRatio()))
+            return playerID.compareTo(player.playerID);
         else
-            return this.winRate().compareTo(player.winRate());
+            return winRatio().compareTo(player.winRatio());
     }
 
-    public Integer winRate() {
+    public Integer winRatio() {
         if (this.gamesPlayed > 0) {
-            float ratio = ((float) this.wins) / ((float) this.gamesPlayed);
+            float ratio = ((float) wins) / ((float) gamesPlayed);
             return ((int) Math.round(100.0 * ratio));
         } else
             return 0;
     }
 
     public String toString() {
-        return this.name + ": " + this.playerType
-                + "\n\twins:      " + this.wins
-                + "\n\tlosses:    " + (this.gamesPlayed - this.wins)
-                + "\n\tw/l ratio: " + this.winRate();
+        String playerTypeString;
+        if (playerType == 1){
+            playerTypeString = "Human Player";
+        }
+        else if (playerType == 2){
+            playerTypeString = "Timid Computer Player";
+        }
+        else{
+            playerTypeString = "Crafty Computer Player";
+        }
+        return playerID + ": " + playerTypeString
+                + "\n\twins:      " + wins
+                + "\n\tlosses:    " + (gamesPlayed - wins)
+                + "\n\tw/l ratio: " + winRatio();
     }
-}*/
+
+}
+
 

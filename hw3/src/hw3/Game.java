@@ -38,33 +38,18 @@ public class Game {
             int currentPlayerTurn = i % playerArrayList.size();
             Player player = playerArrayList.get(currentPlayerTurn);
             System.out.printf("It is currently %s's turn. They have %d chip/s.\n", player.getPlayerID(), player.getChipCount());
-            if (player instanceof HumanPlayer){
-                while(true) {
-                    pot.processOneTurn(player.getNumberOfDiceRolled());
-                    int humanChoice = player.doTurn(pot.getNumberOfChips(), currentHighest);
-                    if (humanChoice == -1){//human aced out
-                        break;
-                    }
-                    if (humanChoice == 2){//human decides to take the pot
-                        player.setNumberOfChips(player.getChipCount() + pot.getNumberOfChips());
-                        pot.setNumberOfChips(0);
-                        break;
-                    }
+            while(true){
+                pot.processOneTurn(player.getNumberOfDiceRolled());
+                if (player.doTurn(pot.getNumberOfChips(), currentHighest) == -1){//aced out
+                    break;
+                }
+                else{//player takes chips
+                    player.setNumberOfChips(player.getChipCount() + pot.getNumberOfChips());
+                    pot.setNumberOfChips(0);
+                    break;
                 }
             }
-            else{//computer player's turn
-                while(true) {
-                    pot.processOneTurn(player.getNumberOfDiceRolled());
-                    if (player.doTurn(pot.getNumberOfChips(), currentHighest) == -1) {//ace out
-                        break;
-                    }
-                    else {
-                        player.setNumberOfChips(player.getChipCount() + pot.getNumberOfChips());//takes chips
-                        pot.setNumberOfChips(0);
-                        break;
-                    }
-                }
-            }
+
             i++;
         }
         gameOver();
@@ -72,7 +57,7 @@ public class Game {
 
     private void gameOver(){
         for (Player player : this.playerArrayList) {
-            player.gameOver();
+            player.endGame();
         }
     }
 
@@ -88,7 +73,7 @@ public class Game {
             oos.writeObject(this.playerDatabase);
             oos.close();
         } catch (Exception e) {
-            throw new RuntimeException("Player record file is corrupt.");
+            throw new RuntimeException("Impossible. Perhaps the archives are incomplete.");
         }
     }
 
@@ -143,5 +128,14 @@ public class Game {
             }
         }
         return false;
+    }
+
+    public void stats() {
+        ArrayList<Player> playerArrayList1 = new ArrayList<>(playerDatabase.values());
+        Collections.sort(playerArrayList1);
+        Collections.reverse(playerArrayList1);
+        for (Player player : playerArrayList1) {
+            System.out.println(player);
+        }
     }
 }
