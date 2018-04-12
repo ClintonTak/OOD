@@ -4,6 +4,7 @@ public class Neutral implements StockAnalyst {
     private StockInfo stockInfo;
     private double confidence;
     private String reason;
+
     public Neutral(StockInfo stockInfo){
         this.stockInfo = stockInfo;
         confidence = .5;

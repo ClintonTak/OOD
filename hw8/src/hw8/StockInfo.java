@@ -74,6 +74,6 @@ public class StockInfo {
     }
 
     public List<String> getProducts(){
-        return products; 
+        return products;
     }
 }

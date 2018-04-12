@@ -4,6 +4,7 @@ public class Bullish implements StockAnalyst {
     private StockInfo stockInfo;
     private double confidence;
     private String reason;
+
     public Bullish(StockInfo stockInfo){
         this.stockInfo = stockInfo;
         confidence = .7;
