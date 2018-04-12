@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>hw5</OriginalElement>
+  <nodes>
+    <node x="410.5674194677881" y="0.0">hw5.FishType</node>
+    <node x="1763.2470413165277" y="855.0">hw5.OctopusFactory</node>
+    <node x="762.2073179271729" y="163.0">hw5.PufferFish</node>
+    <node x="451.6845413165279" y="366.0">hw5.MeanFishFactory</node>
+    <node x="1393.2073179271729" y="163.0">hw5.ErraticBehavior</node>
+    <node x="319.3571428571431" y="163.0">hw5.MeanFish</node>
+    <node x="2845.2743084733906" y="0.0">hw5.FishFactory</node>
+    <node x="2936.743032212887" y="529.0">hw5.Aquarium</node>
+    <node x="1080.7470413165277" y="366.0">hw5.PufferFishFactory</node>
+    <node x="3137.6220413165274" y="163.0">hw5.FishTank</node>
+    <node x="3026.247041316528" y="366.0">hw5.FishAnimation</node>
+    <node x="1879.9573179271729" y="163.0">hw5.NormalBehavior</node>
+    <node x="2297.957317927173" y="163.0">hw5.BottomFeedingBehavior</node>
+    <node x="0.0" y="163.0">hw5.Octopus</node>
+    <node x="1925.6299194677879" y="0.0">hw5.FishBehavior</node>
+    <node x="1079.2073179271729" y="163.0">hw5.AngelFish</node>
+    <node x="1822.2073179271729" y="366.0">hw5.AngelFishFactory</node>
+    <node x="1806.2470413165277" y="712.0">hw5.Fish</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="hw5.NormalBehavior" target="hw5.FishBehavior">
+      <point x="99.25" y="-41.5" />
+      <point x="2177.707317927173" y="143.0" />
+      <point x="2116.8799194677877" y="143.0" />
+      <point x="21.25" y="41.5" />
+    </edge>
+    <edge source="hw5.OctopusFactory" target="hw5.BottomFeedingBehavior">
+      <point x="55.57142857142844" y="-41.5" />
+      <point x="2013.318469887956" y="815.0" />
+      <point x="2559.457317927173" y="815.0" />
+      <point x="0.0" y="41.5" />
+    </edge>
+    <edge source="hw5.FishTank" target="hw5.Fish">
+      <point x="115.41666666666674" y="41.5" />
+      <point x="3391.5387079831944" y="306.0" />
+      <point x="3434.747041316528" y="306.0" />
+      <point x="3434.747041316528" y="692.0" />
+      <point x="2001.0327556022419" y="692.0" />
+      <point x="93.78571428571422" y="-41.5" />
+    </edge>
+    <edge source="hw5.PufferFishFactory" target="hw5.PufferFish">
+      <point x="-51.5" y="-41.5" />
+      <point x="1235.2470413165277" y="286.0" />
+      <point x="910.2073179271729" y="286.0" />
+      <point x="0.0" y="41.5" />
+    </edge>
+    <edge source="hw5.PufferFishFactory" target="hw5.FishType">
+      <point x="-154.5" y="-41.5" />
+      <point x="1132.2470413165277" y="296.0" />
+      <point x="655.3526523109251" y="296.0" />
+      <point x="655.3526523109251" y="133.0" />
+      <point x="591.2674194677882" y="133.0" />
+      <point x="41.700000000000045" y="41.5" />
+    </edge>
+    <edge source="hw5.FishFactory" target="hw5.Fish">
+      <point x="-19.875" y="41.5" />
+      <point x="2984.3993084733906" y="143.0" />
+      <point x="2864.457317927173" y="143.0" />
+      <point x="2864.457317927173" y="662.0" />
+      <point x="1957.7470413165277" y="662.0" />
+      <point x="50.5" y="-41.5" />
+    </edge>
+    <edge source="hw5.MeanFish" target="hw5.FishType">
+      <point x="0.0" y="-41.5" />
+      <point x="464.8571428571431" y="143.0" />
+      <point x="535.667419467788" y="143.0" />
+      <point x="-13.900000000000091" y="41.5" />
+    </edge>
+    <edge source="hw5.Aquarium" target="hw5.PufferFishFactory">
+      <point x="-84.28571428571428" y="-41.5" />
+      <point x="2999.957317927173" y="489.0" />
+      <point x="1424.0803746498611" y="489.0" />
+      <point x="137.33333333333348" y="41.5" />
+    </edge>
+    <edge source="hw5.FishTank" target="hw5.FishFactory">
+      <point x="-69.25" y="-41.5" />
+      <point x="3206.8720413165274" y="143.0" />
+      <point x="3063.8993084733906" y="143.0" />
+      <point x="59.625" y="41.5" />
+    </edge>
+    <edge source="hw5.Fish" target="hw5.FishBehavior">
+      <point x="36.07142857142867" y="-41.5" />
+      <point x="1943.3184698879563" y="652.0" />
+      <point x="2287.457317927173" y="652.0" />
+      <point x="2287.457317927173" y="133.0" />
+      <point x="2159.3799194677877" y="133.0" />
+      <point x="63.75" y="41.5" />
+    </edge>
+    <edge source="hw5.Aquarium" target="hw5.AngelFishFactory">
+      <point x="-42.14285714285711" y="-41.5" />
+      <point x="3042.1001750700298" y="479.0" />
+      <point x="2163.8739845938394" y="479.0" />
+      <point x="136.66666666666663" y="41.5" />
+    </edge>
+    <edge source="hw5.Fish" target="hw5.FishType">
+      <point x="-79.35714285714289" y="-41.5" />
+      <point x="1827.8898984593848" y="682.0" />
+      <point x="308.8571428571431" y="682.0" />
+      <point x="308.8571428571431" y="133.0" />
+      <point x="507.86741946778807" y="133.0" />
+      <point x="-41.700000000000045" y="41.5" />
+    </edge>
+    <edge source="hw5.AngelFishFactory" target="hw5.FishType">
+      <point x="-153.75" y="-41.5" />
+      <point x="1873.4573179271729" y="276.0" />
+      <point x="1068.7073179271729" y="276.0" />
+      <point x="1068.7073179271729" y="113.0" />
+      <point x="646.8674194677883" y="113.0" />
+      <point x="97.30000000000018" y="41.5" />
+    </edge>
+    <edge source="hw5.MeanFishFactory" target="hw5.MeanFish">
+      <point x="-152.625" y="-41.5" />
+      <point x="502.5595413165279" y="346.0" />
+      <point x="464.8571428571431" y="346.0" />
+      <point x="0.0" y="41.5" />
+    </edge>
+    <edge source="hw5.AngelFishFactory" target="hw5.FishFactory">
+      <point x="153.75" y="-41.5" />
+      <point x="2180.957317927173" y="346.0" />
+      <point x="2853.457317927173" y="346.0" />
+      <point x="2853.457317927173" y="133.0" />
+      <point x="2944.6493084733906" y="133.0" />
+      <point x="-59.625" y="41.5" />
+    </edge>
+    <edge source="hw5.BottomFeedingBehavior" target="hw5.FishBehavior">
+      <point x="-130.75" y="-41.5" />
+      <point x="2428.707317927173" y="123.0" />
+      <point x="2201.8799194677877" y="123.0" />
+      <point x="106.25" y="41.5" />
+    </edge>
+    <edge source="hw5.Aquarium" target="hw5.FishTank">
+      <point x="84.28571428571422" y="-41.5" />
+      <point x="3168.5287464986013" y="499.0" />
+      <point x="3401.747041316528" y="499.0" />
+      <point x="3401.747041316528" y="336.0" />
+      <point x="3253.0387079831944" y="336.0" />
+      <point x="-23.083333333333258" y="41.5" />
+    </edge>
+    <edge source="hw5.PufferFish" target="hw5.FishType">
+      <point x="0.0" y="-41.5" />
+      <point x="910.2073179271729" y="123.0" />
+      <point x="619.0674194677881" y="123.0" />
+      <point x="69.5" y="41.5" />
+    </edge>
+    <edge source="hw5.MeanFishFactory" target="hw5.FishType">
+      <point x="-50.875" y="-41.5" />
+      <point x="604.3095413165279" y="346.0" />
+      <point x="620.8571428571431" y="346.0" />
+      <point x="620.8571428571431" y="143.0" />
+      <point x="563.4674194677882" y="143.0" />
+      <point x="13.900000000000091" y="41.5" />
+    </edge>
+    <edge source="hw5.OctopusFactory" target="hw5.Fish">
+      <point x="0.0" y="-41.5" />
+      <point x="50.5" y="41.5" />
+    </edge>
+    <edge source="hw5.MeanFishFactory" target="hw5.FishFactory">
+      <point x="152.625" y="-41.5" />
+      <point x="807.8095413165279" y="326.0" />
+      <point x="2831.457317927173" y="326.0" />
+      <point x="2831.457317927173" y="113.0" />
+      <point x="2865.1493084733906" y="113.0" />
+      <point x="-139.125" y="41.5" />
+    </edge>
+    <edge source="hw5.Fish" target="hw5.Aquarium">
+      <point x="64.92857142857133" y="-41.5" />
+      <point x="1972.175612745099" y="672.0" />
+      <point x="3010.493032212887" y="672.0" />
+      <point x="-73.75" y="41.5" />
+    </edge>
+    <edge source="hw5.Aquarium" target="hw5.FishAnimation">
+      <point x="42.14285714285711" y="-41.5" />
+      <point x="3126.3858893557444" y="489.0" />
+      <point x="3208.747041316528" y="489.0" />
+      <point x="0.0" y="41.5" />
+    </edge>
+    <edge source="hw5.Octopus" target="hw5.FishType">
+      <point x="0.0" y="-41.5" />
+      <point x="136.5" y="103.0" />
+      <point x="424.4674194677882" y="103.0" />
+      <point x="-125.09999999999991" y="41.5" />
+    </edge>
+    <edge source="hw5.PufferFishFactory" target="hw5.ErraticBehavior">
+      <point x="51.5" y="-41.5" />
+      <point x="1338.2470413165277" y="316.0" />
+      <point x="1676.7073179271729" y="316.0" />
+      <point x="94.5" y="41.5" />
+    </edge>
+    <edge source="hw5.ErraticBehavior" target="hw5.FishBehavior">
+      <point x="94.5" y="-41.5" />
+      <point x="1676.7073179271729" y="123.0" />
+      <point x="1989.3799194677879" y="123.0" />
+      <point x="-106.25" y="41.5" />
+    </edge>
+    <edge source="hw5.PufferFishFactory" target="hw5.FishFactory">
+      <point x="154.5" y="-41.5" />
+      <point x="1441.2470413165277" y="336.0" />
+      <point x="2842.457317927173" y="336.0" />
+      <point x="2842.457317927173" y="123.0" />
+      <point x="2904.8993084733906" y="123.0" />
+      <point x="-99.375" y="41.5" />
+    </edge>
+    <edge source="hw5.AngelFishFactory" target="hw5.NormalBehavior">
+      <point x="51.25" y="-41.5" />
+      <point x="0.0" y="41.5" />
+    </edge>
+    <edge source="hw5.AngelFish" target="hw5.FishType">
+      <point x="0.0" y="-41.5" />
+      <point x="1226.2073179271729" y="103.0" />
+      <point x="674.6674194677882" y="103.0" />
+      <point x="125.10000000000014" y="41.5" />
+    </edge>
+    <edge source="hw5.Aquarium" target="hw5.OctopusFactory">
+      <point x="73.75" y="41.5" />
+      <point x="3157.993032212887" y="825.0" />
+      <point x="2068.889898459385" y="825.0" />
+      <point x="111.14285714285734" y="-41.5" />
+    </edge>
+    <edge source="hw5.PufferFishFactory" target="hw5.Fish">
+      <point x="0.0" y="41.5" />
+      <point x="1286.7470413165277" y="509.0" />
+      <point x="1276.1696428571427" y="509.0" />
+      <point x="1276.1696428571427" y="642.0" />
+      <point x="1885.6041841736705" y="642.0" />
+      <point x="-21.64285714285711" y="-41.5" />
+    </edge>
+    <edge source="hw5.Aquarium" target="hw5.MeanFishFactory">
+      <point x="-126.42857142857144" y="-41.5" />
+      <point x="2957.8144607843155" y="499.0" />
+      <point x="790.8512079831944" y="499.0" />
+      <point x="135.66666666666652" y="41.5" />
+    </edge>
+    <edge source="hw5.FishAnimation" target="hw5.FishTank">
+      <point x="91.25" y="-41.5" />
+      <point x="3299.997041316528" y="346.0" />
+      <point x="3206.8720413165274" y="346.0" />
+      <point x="-69.25" y="41.5" />
+    </edge>
+    <edge source="hw5.OctopusFactory" target="hw5.FishFactory">
+      <point x="166.71428571428578" y="-41.5" />
+      <point x="2124.4613270308137" y="835.0" />
+      <point x="3457.0387079831944" y="835.0" />
+      <point x="3457.0387079831944" y="123.0" />
+      <point x="3143.3993084733906" y="123.0" />
+      <point x="139.125" y="41.5" />
+    </edge>
+    <edge source="hw5.OctopusFactory" target="hw5.FishType">
+      <point x="-111.14285714285734" y="-41.5" />
+      <point x="1846.6041841736703" y="825.0" />
+      <point x="283.5" y="825.0" />
+      <point x="283.5" y="113.0" />
+      <point x="452.26741946778816" y="113.0" />
+      <point x="-97.29999999999995" y="41.5" />
+    </edge>
+    <edge source="hw5.AngelFishFactory" target="hw5.Fish">
+      <point x="-136.66666666666663" y="41.5" />
+      <point x="1890.5406512605061" y="509.0" />
+      <point x="1946.6637079831944" y="509.0" />
+      <point x="1946.6637079831944" y="632.0" />
+      <point x="1914.4613270308134" y="632.0" />
+      <point x="7.214285714285779" y="-41.5" />
+    </edge>
+    <edge source="hw5.Aquarium" target="hw5.FishFactory">
+      <point x="0.0" y="-41.5" />
+      <point x="3084.243032212887" y="469.0" />
+      <point x="3015.747041316528" y="469.0" />
+      <point x="3015.747041316528" y="143.0" />
+      <point x="3024.1493084733906" y="143.0" />
+      <point x="19.875" y="41.5" />
+    </edge>
+    <edge source="hw5.MeanFishFactory" target="hw5.Fish">
+      <point x="0.0" y="41.5" />
+      <point x="655.1845413165279" y="509.0" />
+      <point x="644.6071428571431" y="509.0" />
+      <point x="644.6071428571431" y="662.0" />
+      <point x="1856.7470413165277" y="662.0" />
+      <point x="-50.5" y="-41.5" />
+    </edge>
+    <edge source="hw5.MeanFishFactory" target="hw5.ErraticBehavior">
+      <point x="50.875" y="-41.5" />
+      <point x="706.0595413165279" y="306.0" />
+      <point x="1487.7073179271729" y="306.0" />
+      <point x="-94.5" y="41.5" />
+    </edge>
+    <edge source="hw5.AngelFishFactory" target="hw5.AngelFish">
+      <point x="-51.25" y="-41.5" />
+      <point x="1975.9573179271729" y="266.0" />
+      <point x="1226.2073179271729" y="266.0" />
+      <point x="0.0" y="41.5" />
+    </edge>
+    <edge source="hw5.OctopusFactory" target="hw5.Octopus">
+      <point x="-166.71428571428578" y="-41.5" />
+      <point x="1791.0327556022419" y="835.0" />
+      <point x="136.5" y="835.0" />
+      <point x="0.0" y="41.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="839.0" y="424.5" />
+  <SelectedNodes>
+    <node>hw5.AngelFish</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
